@@ -1,0 +1,390 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANCOME STORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #fffafc;
+            color: #4d3440;
+        }
+
+        header {
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f1dce5;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #c5487b;
+            font-size: clamp(21px, 3vw, 28px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #60434f;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d94d87;
+        }
+
+        .services {
+            width: 90%;
+            max-width: 1400px;
+            margin: 35px auto;
+            padding: 45px;
+            background: linear-gradient(120deg, #fce5ed, #f8d3e1);
+            border-radius: 30px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .small-text {
+            color: #d24d82;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 15px 0;
+            font-size: clamp(32px, 5vw, 45px);
+            color: #702d4d;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .service {
+            min-width: 0;
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px #e7cbd6;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px #dfbdcd;
+        }
+
+        .service-icon {
+            font-size: 35px;
+            color: #d94d87;
+        }
+
+        .service h3 {
+            color: #702d4d;
+            font-size: 22px;
+            margin: 15px 0 10px;
+        }
+
+        .service p {
+            color: #705461;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .service-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 25px;
+            background: #d94d87;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .service-button:hover {
+            background: #b9366b;
+        }
+
+        footer {
+            padding: 25px 15px;
+            margin-top: 50px;
+            background: #702d4d;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .logout {
+            display: inline-block;
+            border: none;
+            padding: 10px 22px;
+            background: #c5487b;
+            color: white;
+            border-radius: 20px;
+            font-family: Georgia, serif;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #a92f62;
+            color: white;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                justify-content: center;
+                text-align: center;
+                padding: 15px 4%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .services {
+                padding: 30px;
+            }
+
+            .service-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 22px 15px;
+            }
+
+            header h1 {
+                font-size: 25px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 15px 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .logout {
+                padding: 9px 18px;
+            }
+
+            .services {
+                width: 92%;
+                margin: 22px auto;
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            .title {
+                margin-bottom: 25px;
+            }
+
+            .small-text {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .service-list {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 22px;
+            }
+
+            .service {
+                padding: 20px 18px;
+            }
+
+            .service h3 {
+                font-size: 21px;
+            }
+
+            .service p {
+                font-size: 14px;
+            }
+
+            .service-button {
+                padding: 10px 22px;
+            }
+
+            footer {
+                margin-top: 30px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .services {
+                padding: 22px 14px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            .service {
+                padding: 18px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <img src="logo.png" alt="LANCOME Logo" class="logo">
+            LANCOME STORE
+        </h1>
+
+        <strong><nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="product.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html" class="logout">Log out</a>
+        </nav></strong>
+    </header>
+
+    <main>
+        <div class="services">
+
+            <div class="title">
+                <div class="small-text">OUR SERVICES</div>
+                <h2>Beauty Services</h2>
+            </div>
+
+            <div class="service-list">
+
+                <div class="service">
+                    <div class="service-icon">&#9825;</div>
+                    <h3>Beauty Consultation</h3>
+                    <p>
+                        Get beauty advice and find products
+                        that are right for your daily routine.
+                    </p>
+                    <a href="contact.html" class="service-button">Learn More</a>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">&#10022;</div>
+                    <h3>Skincare Guide</h3>
+                    <p>
+                        Learn simple ways to take care of
+                        your skin every day.
+                    </p>
+                    <a href="contact.html" class="service-button">Learn More</a>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">&#9825;</div>
+                    <h3>Makeup Assistance</h3>
+                    <p>
+                        Get tips to create a simple and
+                        beautiful makeup look.
+                    </p>
+                    <a href="contact.html" class="service-button">Learn More</a>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">&#10023;</div>
+                    <h3>Product Recommendation</h3>
+                    <p>
+                        We can help you choose products
+                        based on what you need.
+                    </p>
+                    <a href="contact.html" class="service-button">Learn More</a>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">&#9825;</div>
+                    <h3>Gift Selection</h3>
+                    <p>
+                        Find beauty products that are perfect
+                        for your friends and loved ones.
+                    </p>
+                    <a href="contact.html" class="service-button">Learn More</a>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">&#10022;</div>
+                    <h3>Customer Support</h3>
+                    <p>
+                        Have questions? We are happy to
+                        help you with our products.
+                    </p>
+                    <a href="contact.html" class="service-button">Contact Us</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 LANCOME Store | Beauty Made Simple
+    </footer>
+
+</body>
+</html>

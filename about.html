@@ -1,0 +1,466 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | LANCOME STORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #fffafc;
+            color: #4d3440;
+        }
+
+        header {
+            min-height: 70px;
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f1dce5;
+            background: #fffdfd;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #c5487b;
+            font-size: clamp(21px, 2.5vw, 28px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #60434f;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #d94d87;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid #d94d87;
+            padding-bottom: 5px;
+        }
+
+        .logout {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #c5487b;
+            color: white;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .logout:hover {
+            background: #a92f62;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .about {
+            width: 92%;
+            max-width: 1500px;
+            min-height: 500px;
+            margin: 35px auto;
+            padding: 60px 55px;
+            background: linear-gradient(120deg, #fce8ef, #f9d9e5 55%, #f8d1e0);
+            border: 1px solid #f8dce6;
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.9fr);
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 12px 35px rgba(160, 76, 112, 0.08);
+        }
+
+        .about-text {
+            min-width: 0;
+        }
+
+        .small-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #d24d82;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            line-height: 1.7;
+        }
+
+        .small-text::before,
+        .small-text::after {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: #d94d87;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            margin: 22px 0;
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.1;
+            color: #702d4d;
+            letter-spacing: -1.5px;
+        }
+
+        .about-text p {
+            margin: 18px 0;
+            font-size: 17px;
+            line-height: 1.85;
+            color: #705461;
+        }
+
+        .about-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 220px;
+            margin: 30px auto 0;
+            color: #d94d87;
+            font-size: 22px;
+        }
+
+        .about-divider span {
+            width: 70px;
+            height: 1px;
+            background: #d94d87;
+        }
+
+        .about-box {
+            min-width: 0;
+            padding: 45px 32px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(151, 67, 104, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(151, 67, 104, 0.16);
+        }
+
+        .mission-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            margin-bottom: 12px;
+            border-radius: 50%;
+            background: #fce5ed;
+            color: #d94d87;
+            font-size: 28px;
+        }
+
+        .about-box h3 {
+            color: #702d4d;
+            font-size: 34px;
+            margin: 8px 0 20px;
+        }
+
+        .about-box p {
+            color: #705461;
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .mission-divider {
+            width: 90px;
+            height: 2px;
+            margin: 25px auto;
+            background: #e99ab8;
+        }
+
+        .tagline {
+            color: #d24d82 !important;
+            font-size: 13px !important;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            padding: 25px 15px;
+            margin-top: 45px;
+            background: #702d4d;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                justify-content: center;
+                text-align: center;
+                padding: 15px 4%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .about {
+                padding: 40px 32px;
+                grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+                gap: 28px;
+            }
+
+            h2 {
+                font-size: clamp(36px, 5vw, 48px);
+            }
+
+            .about-text p {
+                font-size: 16px;
+            }
+
+            .about-box {
+                padding: 35px 24px;
+            }
+
+            .about-box h3 {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 25px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 15px 18px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .logout {
+                padding: 9px 18px;
+            }
+
+            .about {
+                width: 92%;
+                min-height: auto;
+                margin: 22px auto;
+                padding: 32px 24px;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 30px;
+                border-radius: 23px;
+            }
+
+            .small-text {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+                gap: 8px;
+            }
+
+            .small-text::before,
+            .small-text::after {
+                width: 18px;
+            }
+
+            h2 {
+                font-size: clamp(36px, 8vw, 46px);
+                letter-spacing: -0.5px;
+                margin: 18px 0;
+            }
+
+            .about-text p {
+                font-size: 15px;
+                line-height: 1.8;
+                margin: 16px 0;
+            }
+
+            .about-divider {
+                margin-top: 24px;
+            }
+
+            .about-box {
+                padding: 32px 22px;
+                border-radius: 21px;
+            }
+
+            .about-box h3 {
+                font-size: 29px;
+            }
+
+            .about-box p {
+                font-size: 15px;
+            }
+
+            .tagline {
+                font-size: 12px !important;
+                letter-spacing: 1.5px;
+            }
+
+            footer {
+                margin-top: 30px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 22px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .about {
+                padding: 25px 18px;
+            }
+
+            .small-text {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                font-size: 33px;
+            }
+
+            .about-box {
+                padding: 28px 17px;
+            }
+
+            .tagline {
+                font-size: 11px !important;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <img src="logo.png" alt="LANCOME Logo" class="logo">
+            LANCOME STORE
+        </h1>
+
+        <strong>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="product.html">Products</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html" class="logout">Log out</a>
+            </nav>
+        </strong>
+    </header>
+
+    <main>
+        <section class="about">
+
+            <div class="about-text">
+                <div class="small-text">ABOUT LANCOME STORE</div>
+
+                <h2>Beauty Made Simple.</h2>
+
+                <p>
+                    Welcome to LANCOME STORE, your place for beauty,
+                    skincare, and self-care products. We believe that
+                    everyone deserves to feel beautiful and confident.
+                </p>
+
+                <p>
+                    Our goal is to provide quality beauty products
+                    that are simple to use and perfect for your
+                    everyday routine.
+                </p>
+
+                <p>
+                    At LANCOME STORE, beauty is not about being perfect.
+                    It is about feeling comfortable, confident, and
+                    being yourself.
+                </p>
+
+                <div class="about-divider">
+                    <span></span>
+                    &#10084;
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <div class="mission-icon">&#10084;</div>
+
+                <h3>Our Mission</h3>
+
+                <p>
+                    To make beauty and self-care simple,
+                    enjoyable, and accessible for everyone.
+                </p>
+
+                <div class="mission-divider"></div>
+
+                <p class="tagline">
+                    BEAUTY &nbsp; - &nbsp; CARE &nbsp; - &nbsp; CONFIDENCE
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 LANCOME Store | Beauty Made Simple
+    </footer>
+
+</body>
+</html>

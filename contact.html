@@ -1,0 +1,433 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANCOME STORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #fffafc;
+            color: #4d3440;
+        }
+
+        header {
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f1dce5;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #c5487b;
+            font-size: clamp(21px, 3vw, 28px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #60434f;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d94d87;
+        }
+
+        .contact {
+            width: 90%;
+            max-width: 1400px;
+            margin: 35px auto;
+            padding: 45px;
+            background: linear-gradient(120deg, #fce5ed, #f8d3e1);
+            border-radius: 30px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .small-text {
+            color: #d24d82;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 15px 0;
+            font-size: clamp(32px, 5vw, 45px);
+            color: #702d4d;
+        }
+
+        .content {
+            display: flex;
+            gap: 25px;
+        }
+
+        .info,
+        .form {
+            min-width: 0;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px #e7cbd6;
+        }
+
+        .info {
+            width: 40%;
+        }
+
+        .form {
+            width: 60%;
+        }
+
+        .info h3 {
+            color: #702d4d;
+            font-size: 25px;
+            margin-top: 0;
+        }
+
+        .info p {
+            color: #705461;
+            line-height: 1.7;
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        label {
+            display: block;
+            color: #702d4d;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border: 1px solid #edcedb;
+            border-radius: 10px;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            background: #fffafc;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #d94d87;
+            border-color: #d94d87;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            display: inline-block;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            background: #d94d87;
+            color: white;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #b9366b;
+        }
+
+        footer {
+            padding: 25px 15px;
+            margin-top: 50px;
+            background: #702d4d;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .logout {
+            display: inline-block;
+            border: none;
+            padding: 10px 22px;
+            background: #c5487b;
+            color: white;
+            border-radius: 20px;
+            font-family: Georgia, serif;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #a92f62;
+            color: white;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                justify-content: center;
+                text-align: center;
+                padding: 15px 4%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .contact {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 22px 15px;
+            }
+
+            header h1 {
+                font-size: 25px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 15px 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .logout {
+                padding: 9px 18px;
+            }
+
+            .contact {
+                width: 92%;
+                margin: 22px auto;
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            .title {
+                margin-bottom: 25px;
+            }
+
+            .small-text {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .content {
+                flex-direction: column;
+                gap: 22px;
+            }
+
+            .info,
+            .form {
+                width: 100%;
+                padding: 20px 18px;
+            }
+
+            .info h3 {
+                font-size: 21px;
+            }
+
+            .info p {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 22px;
+            }
+
+            footer {
+                margin-top: 30px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .contact {
+                padding: 22px 14px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            .info,
+            .form {
+                padding: 18px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <img src="logo.png" alt="LANCOME Logo" class="logo">
+            LANCOME STORE
+        </h1>
+
+        <strong><nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="product.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html" class="logout">Log out</a>
+        </nav></strong>
+    </header>
+
+    <main>
+        <div class="contact">
+
+            <div class="title">
+                <div class="small-text">GET IN TOUCH</div>
+                <h2>Contact Us</h2>
+            </div>
+
+            <div class="content">
+
+                <div class="info">
+                    <h3>LANCOME STORE</h3>
+
+                    <p>
+                        Have questions about our products?
+                        You can contact us anytime.
+                    </p>
+
+                    <p>
+                        <b>Address:</b><br>
+                        Main Street, Philippines
+                    </p>
+
+                    <p>
+                        <b>Phone:</b><br>
+                        &#9742; 09383435414
+                    </p>
+
+                    <p>
+                        <b>Email:</b><br>
+                        &#9993; pearlstore@gmail.com
+                    </p>
+
+                    <p>
+                        <b>Opening Hours:</b><br>
+                        Monday - Saturday<br>
+                        9:00 AM - 6:00 PM
+                    </p>
+                </div>
+
+                <div class="form">
+                    <form onsubmit="sendMessage(event)">
+
+                        <label for="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                        <label for="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                        <button type="submit">Send Message</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 LANCOME Store | Beauty Made Simple
+    </footer>
+
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+
+            alert("Thank you for contacting LANCOME STORE!");
+
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+        }
+    </script>
+
+</body>
+</html>

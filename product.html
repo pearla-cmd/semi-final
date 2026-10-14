@@ -1,0 +1,488 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANCOME STORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #fffafc;
+            color: #4d3440;
+        }
+
+        header {
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f1dce5;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #c5487b;
+            font-size: clamp(21px, 3vw, 28px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #60434f;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d94d87;
+        }
+
+        .products {
+            width: 90%;
+            max-width: 1400px;
+            margin: 35px auto;
+            padding: 45px;
+            background: linear-gradient(120deg, #fce5ed, #f8d3e1);
+            border-radius: 30px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .small-text {
+            color: #d24d82;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 15px 0;
+            font-size: clamp(32px, 5vw, 45px);
+            color: #702d4d;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            min-width: 0;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px #e7cbd6;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px #dfbdcd;
+        }
+
+        .product img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 15px;
+            background: #f9edf2;
+        }
+
+        .product h3 {
+            margin: 15px 0 8px;
+            color: #702d4d;
+            font-size: 22px;
+        }
+
+        .product p {
+            margin: 5px 0;
+            color: #705461;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .price {
+            color: #d94d87;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .buy-button {
+            width: 100%;
+            max-width: 180px;
+            min-height: 44px;
+            border: none;
+            padding: 11px 20px;
+            background: #d94d87;
+            color: white;
+            border-radius: 20px;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-button:hover {
+            background: #b9366b;
+        }
+
+        footer {
+            padding: 25px 15px;
+            margin-top: 50px;
+            background: #702d4d;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .logout {
+            display: inline-block;
+            border: none;
+            padding: 10px 22px;
+            background: #c5487b;
+            color: white;
+            border-radius: 20px;
+            font-family: Georgia, serif;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #a92f62;
+            color: white;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                justify-content: center;
+                text-align: center;
+                padding: 15px 4%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .products {
+                padding: 30px;
+            }
+
+            .product-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .product img {
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 22px 15px;
+            }
+
+            header h1 {
+                font-size: 25px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 15px 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .logout {
+                padding: 9px 18px;
+            }
+
+            .products {
+                width: 92%;
+                margin: 22px auto;
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            .title {
+                margin-bottom: 25px;
+            }
+
+            .small-text {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .product-list {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 22px;
+            }
+
+            .product {
+                padding: 18px;
+            }
+
+            .product img {
+                height: auto;
+                aspect-ratio: 1 / 1;
+                max-height: 320px;
+            }
+
+            .product h3 {
+                font-size: 21px;
+            }
+
+            .product p {
+                font-size: 14px;
+            }
+
+            .buy-button {
+                max-width: 220px;
+                min-height: 46px;
+            }
+
+            footer {
+                margin-top: 30px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .products {
+                padding: 22px 14px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            .product {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <img src="logo.png" alt="LANCOME Logo" class="logo">
+            LANCOME STORE
+        </h1>
+
+        <strong><nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="product.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html" class="logout">Log out</a>
+        </nav></strong>
+    </header>
+
+    <main>
+        <div class="products">
+
+            <div class="title">
+                <div class="small-text">
+                    OUR BEAUTY PRODUCTS
+                </div>
+
+                <h2>Beauty Favorites</h2>
+            </div>
+
+            <div class="product-list">
+
+                <div class="product">
+                    <img src="1.jpg" alt="Face Cream">
+                    <h3>Face Cream</h3>
+                    <p>Moisturizing cream for soft and healthy-looking skin.</p>
+                    <div class="price">&#8369;450</div>
+                    <button class="buy-button" onclick="buy('Face Cream')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="2.jpg" alt="Lipstick">
+                    <h3>Lipstick</h3>
+                    <p>Beautiful color for your everyday look.</p>
+                    <div class="price">&#8369;350</div>
+                    <button class="buy-button" onclick="buy('Lipstick')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="3.jpg" alt="Face Serum">
+                    <h3>Face Serum</h3>
+                    <p>Lightweight serum for a fresh and glowing look.</p>
+                    <div class="price">&#8369;550</div>
+                    <button class="buy-button" onclick="buy('Face Serum')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="4.jpg" alt="Perfume">
+                    <h3>Perfume</h3>
+                    <p>A soft and elegant fragrance for every occasion.</p>
+                    <div class="price">&#8369;650</div>
+                    <button class="buy-button" onclick="buy('Perfume')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="5.jpg" alt="Face Wash">
+                    <h3>Face Wash</h3>
+                    <p>Gentle cleanser for clean and refreshed skin.</p>
+                    <div class="price">&#8369;300</div>
+                    <button class="buy-button" onclick="buy('Face Wash')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="6.jpg" alt="Body Lotion">
+                    <h3>Body Lotion</h3>
+                    <p>Keeps your skin smooth, soft, and moisturized.</p>
+                    <div class="price">&#8369;400</div>
+                    <button class="buy-button" onclick="buy('Body Lotion')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="7.jpg" alt="Foundation">
+                    <h3>Foundation</h3>
+                    <p>Light and smooth coverage for a natural finish.</p>
+                    <div class="price">&#8369;600</div>
+                    <button class="buy-button" onclick="buy('Foundation')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="8.jpg" alt="Blush">
+                    <h3>Blush</h3>
+                    <p>Adds a soft and natural color to your cheeks.</p>
+                    <div class="price">&#8369;380</div>
+                    <button class="buy-button" onclick="buy('Blush')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="9.jpg" alt="Mascara">
+                    <h3>Mascara</h3>
+                    <p>Defines and enhances your lashes beautifully.</p>
+                    <div class="price">&#8369;420</div>
+                    <button class="buy-button" onclick="buy('Mascara')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="10.jpg" alt="Eyeshadow">
+                    <h3>Eyeshadow</h3>
+                    <p>Beautiful shades for simple or glamorous looks.</p>
+                    <div class="price">&#8369;500</div>
+                    <button class="buy-button" onclick="buy('Eyeshadow')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="11.jpg" alt="Sunscreen">
+                    <h3>Sunscreen</h3>
+                    <p>Helps protect your skin during everyday activities.</p>
+                    <div class="price">&#8369;480</div>
+                    <button class="buy-button" onclick="buy('Sunscreen')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="12.jpg" alt="Face Mask">
+                    <h3>Face Mask</h3>
+                    <p>A relaxing skincare treatment for your routine.</p>
+                    <div class="price">&#8369;320</div>
+                    <button class="buy-button" onclick="buy('Face Mask')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="13.jpg" alt="Makeup Remover">
+                    <h3>Makeup Remover</h3>
+                    <p>Gently removes makeup and leaves skin feeling fresh.</p>
+                    <div class="price">&#8369;350</div>
+                    <button class="buy-button" onclick="buy('Makeup Remover')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="14.jpg" alt="Hand Cream">
+                    <h3>Hand Cream</h3>
+                    <p>Keeps your hands soft and moisturized.</p>
+                    <div class="price">&#8369;280</div>
+                    <button class="buy-button" onclick="buy('Hand Cream')">Buy Now</button>
+                </div>
+
+                <div class="product">
+                    <img src="15.jpg" alt="Beauty Set">
+                    <h3>Beauty Set</h3>
+                    <p>A collection of beauty essentials for your daily routine.</p>
+                    <div class="price">&#8369;850</div>
+                    <button class="buy-button" onclick="buy('Beauty Set')">Buy Now</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 LANCOME Store | Beauty Made Simple
+    </footer>
+
+    <script>
+        function buy(product) {
+            if (confirm("Do you want to buy " + product + "?")) {
+                alert("Thank you for buying " + product + "!");
+            }
+        }
+    </script>
+
+</body>
+</html>
